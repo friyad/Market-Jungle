@@ -1,0 +1,120 @@
+
+
+.journalBox{
+    background: #FFFFFF;
+    border: 1px solid #656565;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+@media only screen and (min-width: 0px) {
+    .journalBox{
+        height:auto;
+   }   
+  }
+/* @media only screen and (min-width: 640px) {
+    .journalBox{
+        height:400px;
+       }   
+  } */
+@media only screen and (min-width: 1280px) {
+    .journalBox{
+        height:350px;
+       }    
+  }
+
+
+
+.journalFlexBox{
+    -moz-box-sizing:    border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing:     border-box;
+     box-sizing:        border-box;
+    width: 100%;
+}
+
+.journalBigTextArea{
+    background: #F4F9FD;
+    border: 1px solid #38712F;
+    box-sizing: border-box;
+    border-radius: 5px;
+    width: 100%;
+}
+.journalBigTextArea:focus{
+    background: #FFFFFF;  
+    border: 1px solid #8C8C8C;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.rightSideSmallBox{
+    height: 300px;
+    background: #E6E5E5;
+    border: 0.3px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 4px;
+    overflow-y: auto;
+}
+
+
+
+
+
+
+
+
+
+.tab-content {
+    max-height: 0;
+    -webkit-transition: max-height .35s;
+    -o-transition: max-height .35s;
+    transition: max-height .35s;
+    background-color: white;
+border: 0;
+    }
+    .tab{
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+        position: relative;
+        background: #FFFFFF;        
+        box-sizing: border-box;
+    }
+    .tab input:checked ~ .tab-content {
+        max-height: 100vh;
+    }
+    label{
+        color: #4C4C4C;
+    }
+    .tab input:checked + label{
+    font-size: 1.25rem; 
+    padding: 1.25rem; 
+    background-color: white; 
+    color: #6574cd; 
+    }
+     .tab label::after {
+    float:right;
+    right: 30;
+    top: 30;
+    display: block;
+    position: absolute;
+    font-size: 1.25rem;
+    text-align: center;
+    -webkit-transition: all .35s;
+    -o-transition: all .35s;
+    transition: all .35s;
+    } 
+     .tab input[type=checkbox] + label::after { 
+        content:url(../images/leftArrow.svg);
+        font-weight:bold; 
+    } 
+    .tab input[type=radio] + label::after {
+    content: "\25BE";
+    font-weight:bold;
+    } 
+     .tab input[type=checkbox]:checked + label::after {
+    transform: rotate(-90deg);
+    } 
+
+    .tab input[type=radio]:checked + label::after {
+    transform: rotateX(-90deg);
+    } 

@@ -1,0 +1,47 @@
+
+.tab-content {
+    max-height: 0;
+    -webkit-transition: max-height .35s;
+    -o-transition: max-height .35s;
+    transition: max-height .35s;
+    }
+    .tab{
+        position: relative;
+        background: #FFFFFF;        
+        border: 1px solid #D9D9D9;
+        box-sizing: border-box;
+        border-radius: 8px;
+    }
+    .tab input:checked ~ .tab-content {
+        max-height: 100vh;
+    }
+    label{
+        color: #4C4C4C;
+    }
+    .tab input:checked + label{
+    padding: 1.25rem; 
+    color: #4C4C4C; 
+    }
+     .tab label::after {
+    float:right;
+    right: 30;
+    top: 30;
+    display: block;
+    position: absolute;
+    font-size: 1.25rem;
+    text-align: center;
+    -webkit-transition: all .35s;
+    -o-transition: all .35s;
+    transition: all .35s;
+    } 
+
+    .tab input[type=radio] + label::after {
+        content:url(../images/leftArrow.svg);
+    } 
+     /* .tab input[type=checkbox]:checked + label::after {
+    transform: rotate(-90deg);
+    }  */
+
+    .tab input[type=radio]:checked + label::after {
+    transform: rotate(90deg);
+    } 

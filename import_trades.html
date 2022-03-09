@@ -1,0 +1,655 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Import Trades</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/importTrades.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <!-- Custom Fonts----------- -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+</head>
+
+<body class="xs:flex-col sm:flex-row flex xs:justify-between 2xl:justify-center space-x-3">
+    <!-----START SIDE BAR----->
+    <div class="sideBar md:v-screen" style="overflow-y: hidden; height: 100vh;">
+        <div class="flex logo py-2 pl-3 md:pr-4 xs:bg-gray-100 sm:bg-transparent items-center">
+
+            <button id="humBurgerIcon" class="mr-4 xs:block sm:hidden" onclick="handleSmallDeviceMenu()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"
+                        fill="000000" />
+                </svg>
+            </button>
+
+
+            <a href="">
+                <img class="xs:w-12  xl:w-20 xs:h-10  xl:h-16" src="images/logo.png" alt="">
+            </a>
+
+            <div class="ml-3">
+                <h1 class="montserrat logoLargName">Market Jungle</h1>
+
+                <p class="font-bold logoSmallTexts">
+                    Visualize | Build | Execute | Analyze</p>
+            </div>
+        </div>
+
+
+        <div id="leftSideBar" class="sm:h-full px-6 py-4 mt-2 SmallMenuBar rounded-r-md"
+            style="background: linear-gradient(90deg, rgba(0,57,23,1) 0%, rgba(0,0,0,1) 100%);">
+
+
+
+            <!-- Right Side Nav Sign In + Settings + Notification for mobile device -->
+            <div class="sm:hidden">
+                <div class="relative">
+                    <input placeholder="Search..." class="rounded-md w-full outline outline-1 outline-gray-300
+            p-2 pl-3 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500" type="text">
+                    <button class="absolute right-3 top-2">
+                        <img class="w-5 h-5" src="images/search.png" alt="">
+                    </button>
+                </div>
+
+                <div class="group cursor-pointer mt-2 link-content mb-2 hover:bg-white hover:pl-7 pl-2 rounded-full mt-5 transition-all
+    p-2">
+                    <div class="icon text-red-500 mr-2 flex rounded-full w-8 h-8 justify-center items-center">
+                        <img class="h-5 w-4" src="./images/user.svg" alt="">
+                    </div>
+                    <a class="text-neutral-200 text-xl futuraMD group-hover:text-green-600 group-hover:font-bold link">
+                        Sign In
+                    </a>
+                </div>
+
+                <div class="group cursor-pointer mt-2 link-content mb-2 hover:bg-white hover:pl-7 pl-2 rounded-full mt-5 transition-all
+    p-2">
+                    <div class="icon text-red-500 mr-2 flex rounded-full w-8 h-8 justify-center items-center">
+                        <img class="h-5 w-5" src="./images/settings.svg" alt="">
+                    </div>
+                    <a class="text-neutral-200 text-xl futuraMD group-hover:text-green-600 group-hover:font-bold link">
+                        Settings
+                    </a>
+                </div>
+
+                <div class="group cursor-pointer mt-2 link-content mb-2 hover:bg-white hover:pl-7 pl-2 rounded-full mt-5 transition-all
+    p-2">
+                    <div class="icon text-red-500 mr-2 flex rounded-full w-8 h-8 justify-center items-center">
+                        <img class="h-6 w-6" src="./images/bell .svg" alt="">
+                    </div>
+                    <a class="text-neutral-200 text-xl futuraMD group-hover:text-green-600 group-hover:font-bold link">
+                        Notification
+                    </a>
+                </div>
+            </div>
+            <!-- Mobile Device content close -->
+
+
+
+            <a href="/index.html" class="leftSideNavA">
+                <div class="group cursor-pointer mt-2 link-content mb-2 pl-2 hover:bg-white hover:pl-7 rounded-full mt-5 transition-all
+            p-2">
+                    <div class="icon text-red-500 mr-2 flex rounded-full w-8 h-8 justify-center items-center">
+                        <svg width="17" height="15" class="mySvG" viewBox="0 0 14 11" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M13.6242 4.10618C12.6803 2.57318 10.5643 0 6.99973 0C3.43589 0 1.31912 2.57248 0.375226 4.10618C-0.125075 4.91958 -0.125075 5.92968 0.375226 6.74378C1.31984 8.27678 3.43589 10.85 6.99973 10.85C10.5643 10.85 12.6803 8.27748 13.6242 6.74378C14.1253 5.93038 14.1253 4.92028 13.6242 4.10618ZM12.7011 6.20408C11.8743 7.54738 10.0338 9.80068 6.99973 9.80068C3.96562 9.80068 2.12521 7.54738 1.29831 6.20408C1.0033 5.72388 1.0033 5.12678 1.29831 4.64728C2.12521 3.30398 3.96634 1.05068 6.99973 1.05068C10.0346 1.05068 11.875 3.30398 12.7011 4.64728C12.9969 5.12678 12.9969 5.72388 12.7011 6.20408ZM6.99973 2.45068C5.31794 2.45068 3.94911 3.78558 3.94911 5.42568C3.94911 7.06578 5.31794 8.40068 6.99973 8.40068C8.68152 8.40068 10.0503 7.06578 10.0503 5.42568C10.0503 3.78558 8.68152 2.45068 6.99973 2.45068ZM6.99973 7.35068C5.91084 7.35068 5.0258 6.48758 5.0258 5.42568C5.0258 4.36378 5.91084 3.50068 6.99973 3.50068C8.08862 3.50068 8.97366 4.36378 8.97366 5.42568C8.97366 6.48758 8.08862 7.35068 6.99973 7.35068Z"
+                                fill="#E5E5E5" />
+                        </svg>
+                    </div>
+                    <p class="text-neutral-200 text-xl futuraMD group-hover:text-green-600 group-hover:font-bold link">
+                        Overview
+                    </p>
+                </div>
+            </a>
+
+            <div class="divider w-full xs:hidden sm:block"></div>
+
+            <a href="/statistics.html" class="leftSideNavA">
+                <div class="group cursor-pointer mt-2 link-content mb-2 hover:bg-white hover:pl-7 pl-2 rounded-full transition-all
+            p-2">
+                    <div class="icon text-red-500 mr-2 flex rounded-full w-8 h-8 justify-center items-center">
+                        <svg width="16" height="14" class="mySvG" viewBox="0 0 14 11" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M3.03789 7.08055C3.4043 7.40594 3.95937 7.40594 4.29844 7.08055L5.6875 5.76074L7.25648 7.25444C7.42656 7.41635 7.65078 7.49705 7.875 7.49705C8.09922 7.49705 8.32289 7.4157 8.49352 7.25301L12.688 3.25975C13.0296 2.93462 13.0296 2.40721 12.6881 2.08182C12.3463 1.75642 11.7923 1.75642 11.4508 2.08177L7.875 5.48741L6.30547 3.99319C5.96367 3.6678 5.40996 3.6678 5.06816 3.99319L3.03789 5.90391C2.7207 6.22671 2.7207 6.75515 3.03789 7.08055ZM13.125 9.99609H1.75V0.809523C1.75 0.372972 1.35816 -6.10352e-05 0.875 -6.10352e-05C0.391836 -6.10352e-05 0 0.372972 0 0.809523V10.8291C0 11.2873 0.39375 11.6621 0.875 11.6621H13.125C13.609 11.6621 14 11.2899 14 10.8291C14 10.3683 13.609 9.99609 13.125 9.99609Z"
+                                fill="#E5E5E5" />
+                        </svg>
+                    </div>
+                    <p class="text-neutral-200 text-xl futuraMD group-hover:text-green-600 group-hover:font-bold link">
+                        Statistics
+                    </p>
+                </div>
+            </a>
+
+            <div class="divider w-full xs:hidden sm:block"></div>
+
+            <a href="/trades.html" class="leftSideNavA">
+                <div class="group cursor-pointer mt-2 link-content mb-2 hover:bg-white hover:pl-7 pl-2 rounded-full transition-all
+            p-2">
+                    <div class="icon text-red-500 mr-2 flex rounded-full w-8 h-8 justify-center items-center ">
+                        <svg style="margin-top: -5px; margin-left: -3px;" width="16" height="16" class="mySvG"
+                            viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M13.3512 11.3951C12.6179 11.3951 11.5732 10.9969 11.8848 9.43994C12.1291 8.2179 12.8624 7.97339 13.3512 7.97339C13.803 7.97339 14.2205 8.14038 14.568 8.35095C14.7364 8.45288 14.9504 8.3324 14.943 8.13562L14.8369 5.31116C14.8264 5.03113 14.5833 4.81738 14.3042 4.84265L11.63 5.0852C11.4272 5.10364 11.2877 4.87768 11.4025 4.70947C11.6594 4.33313 11.8844 3.85412 11.8844 3.32971C11.8844 2.59643 11.4642 1.45642 9.9292 1.86316C8.72449 2.18237 8.46277 2.84094 8.46277 3.32971C8.46277 3.87292 8.70373 4.36694 8.97168 4.74866C9.09094 4.9187 8.9602 5.14941 8.75317 5.13269L5.09924 4.83996C4.80774 4.81665 4.56116 5.05273 4.57165 5.34473L4.64026 7.25012C4.64697 7.43591 4.45373 7.55762 4.2865 7.47693C3.99792 7.3374 3.67395 7.24023 3.32971 7.24023C2.59643 7.24023 1.45642 7.6604 1.86316 9.19543C2.18249 10.4001 2.84094 10.662 3.32971 10.662C3.68847 10.662 4.02576 10.5564 4.32348 10.4075C4.49023 10.324 4.68518 10.4452 4.67944 10.6315L4.56518 14.3774C4.55774 14.6274 4.73974 14.8427 4.98743 14.8767L6.75268 15.0964C6.95166 15.1237 7.099 14.9116 6.99951 14.7369C6.81018 14.4049 6.66626 14.0144 6.66626 13.5947C6.66626 12.8614 6.8905 12.1282 8.3772 12.1282C9.59924 12.1282 10.0883 12.8614 10.0883 13.5947C10.0883 14.0566 9.91369 14.4827 9.69641 14.8347C9.59326 15.0022 9.71216 15.2167 9.90893 15.2109L14.3588 15.0747C14.6167 15.0669 14.8242 14.8602 14.8328 14.6022L14.9449 11.2302C14.9514 11.0339 14.7379 10.9139 14.5699 11.0159C14.2224 11.2277 13.804 11.3951 13.3512 11.3951Z"
+                                fill="#E5E5E5" />
+                        </svg>
+                    </div>
+                    <p class="text-neutral-200 text-xl futuraMD group-hover:text-green-600 group-hover:font-bold link">
+                        Trades
+                    </p>
+                </div>
+            </a>
+
+            <div class="divider w-full xs:hidden sm:block"></div>
+
+            <a href="/journal.html" class="leftSideNavA">
+                <div class="group cursor-pointer mt-2 link-content mb-2 hover:bg-white hover:pl-7 pl-2 rounded-full transition-all
+            p-2">
+                    <div class="icon text-red-500 mr-2 flex rounded-full w-8 h-8 justify-center items-center">
+                        <svg width="16" height="16" class="mySvG" viewBox="0 0 14 11" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10.5897 0H3.41026C1.52995 0 0 1.61265 0 3.59459V13.4324C0 13.6617 0.131394 13.8691 0.332419 13.9569C0.399189 13.9864 0.468821 14 0.538462 14C0.678462 14 0.816307 13.9425 0.918974 13.8335L2.6521 12.0067C2.82154 11.8281 3.04698 11.7297 3.28677 11.7297H10.5897C12.4701 11.7297 14 10.1171 14 8.13514V3.59459C14 1.61265 12.4701 0 10.5897 0ZM12.9231 8.13514C12.9231 9.49124 11.8763 10.5946 10.5897 10.5946H3.28749C2.7598 10.5946 2.26441 10.8111 1.89108 11.2046L1.07692 12.0627V3.59459C1.07692 2.23849 2.12369 1.13514 3.41026 1.13514H10.5897C11.8763 1.13514 12.9231 2.23849 12.9231 3.59459V8.13514ZM4.84615 5.86487C4.84615 6.2826 4.52451 6.62162 4.12821 6.62162C3.7319 6.62162 3.41026 6.2826 3.41026 5.86487C3.41026 5.44714 3.7319 5.10811 4.12821 5.10811C4.52451 5.10811 4.84615 5.44714 4.84615 5.86487ZM7.71795 5.86487C7.71795 6.2826 7.39631 6.62162 7 6.62162C6.60369 6.62162 6.28205 6.2826 6.28205 5.86487C6.28205 5.44714 6.60369 5.10811 7 5.10811C7.39631 5.10811 7.71795 5.44714 7.71795 5.86487ZM10.5897 5.86487C10.5897 6.2826 10.2681 6.62162 9.87179 6.62162C9.47549 6.62162 9.15385 6.2826 9.15385 5.86487C9.15385 5.44714 9.47549 5.10811 9.87179 5.10811C10.2681 5.10811 10.5897 5.44714 10.5897 5.86487Z"
+                                fill="#E5E5E5" />
+                        </svg>
+                    </div>
+                    <p class="text-neutral-200 text-xl futuraMD group-hover:text-green-600 group-hover:font-bold link">
+                        Journal
+                    </p>
+                </div>
+            </a>
+
+            <div class="divider w-full xs:hidden sm:block"></div>
+
+            <a href="/import_trades.html" class="leftSideNavA">
+                <div class="group cursor-pointer mt-2 link-content mb-2 hover:bg-white hover:pl-7 pl-2 rounded-full transition-all
+            p-2">
+                    <div class="icon text-red-500 mr-2 flex rounded-full w-8 h-8 justify-center items-center">
+                        <svg width="16" height="16" class="mySvG" viewBox="0 0 14 11" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M4.46562 3.17987C4.25526 2.96223 4.25526 2.60936 4.46562 2.39171L6.61947 0.163236C6.82983 -0.0544119 7.17088 -0.0544119 7.38124 0.163236L9.53508 2.39171C9.74544 2.60936 9.74544 2.96223 9.53508 3.17987C9.43026 3.28833 9.29239 3.34327 9.15455 3.34327C9.0167 3.34327 8.87888 3.28907 8.77406 3.17987L7.53916 1.90224V5.75746C7.53916 6.06499 7.29793 6.31458 7.0007 6.31458C6.70347 6.31458 6.46224 6.06499 6.46224 5.75746V1.90296L5.22739 3.1806C5.01631 3.3975 4.67598 3.39752 4.46562 3.17987ZM10.5897 5.20034C10.2925 5.20034 10.0513 5.44993 10.0513 5.75746C10.0513 6.06499 10.2925 6.31458 10.5897 6.31458C11.8763 6.31458 12.9231 7.39761 12.9231 8.72876V9.47158C12.9231 10.8027 11.8763 11.8858 10.5897 11.8858H3.41026C2.12369 11.8858 1.07692 10.8027 1.07692 9.47158V8.72876C1.07692 7.39761 2.12369 6.31458 3.41026 6.31458C3.70749 6.31458 3.94872 6.06499 3.94872 5.75746C3.94872 5.44993 3.70749 5.20034 3.41026 5.20034C1.52995 5.20034 0 6.7833 0 8.72876V9.47158C0 11.417 1.52995 13 3.41026 13H10.5897C12.4701 13 14 11.417 14 9.47158V8.72876C14 6.7833 12.4701 5.20034 10.5897 5.20034ZM11.3077 8.72876C11.3077 8.31872 10.9861 7.98593 10.5897 7.98593C10.1934 7.98593 9.87179 8.31872 9.87179 8.72876C9.87179 9.1388 10.1934 9.47158 10.5897 9.47158C10.9861 9.47158 11.3077 9.1388 11.3077 8.72876Z"
+                                fill="#E5E5E5" />
+                        </svg>
+                    </div>
+                    <p class="text-neutral-200 text-xl futuraMD group-hover:text-green-600 group-hover:font-bold link">
+                        Import Trades
+                    </p>
+                </div>
+            </a>
+
+            <div class="divider w-full xs:hidden sm:block"></div>
+
+            <div class="group cursor-pointer mt-2 link-content hover:bg-white hover:pl-7 pl-2 rounded-full transition-all
+            p-2">
+                <div class="icon text-red-500 mr-2 flex rounded-full w-8 h-8 justify-center items-center">
+                    <svg width="16" height="16" class="mySvG" viewBox="0 0 14 11" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_659_1129)">
+                            <path
+                                d="M12.6653 1.20473C12.6355 1.06794 12.4984 0.932703 12.3593 0.903336C11.5519 0.732544 10.9199 0.732544 10.2905 0.732544C7.70208 0.732544 6.14985 2.09772 4.99102 3.89799H2.37795C1.96805 3.89837 1.48641 4.19166 1.30262 4.55295L0.0630764 6.99658C0.0247703 7.07992 0.00334336 7.16983 0 7.26127C5.76364e-05 7.41869 0.0634971 7.56964 0.176371 7.68094C0.289244 7.79224 0.442312 7.85477 0.601919 7.85479H3.20485L2.64132 8.41044C2.35635 8.69141 2.31546 9.20818 2.64132 9.52948L3.91769 10.7884C4.19742 11.0651 4.72397 11.1137 5.05297 10.7884L5.61649 10.2327V12.8008C5.61655 12.9582 5.67999 13.1092 5.79286 13.2205C5.90574 13.3318 6.05881 13.3943 6.21841 13.3943C6.31114 13.3909 6.40232 13.3698 6.48688 13.3321L8.96238 12.1107C9.32919 11.9302 9.62704 11.4553 9.62704 11.0508V8.46802C11.4473 7.32271 12.8374 5.78713 12.8374 3.24766C12.8397 2.62439 12.8397 2.00112 12.6653 1.20473ZM9.62939 4.88719C9.43103 4.88714 9.23715 4.82909 9.07224 4.72036C8.90734 4.61164 8.77882 4.45713 8.70295 4.27637C8.62708 4.09562 8.60725 3.89673 8.64598 3.70486C8.6847 3.51299 8.78024 3.33675 8.92052 3.19843C9.06079 3.06011 9.2395 2.96593 9.43405 2.92778C9.6286 2.88963 9.83025 2.90923 10.0135 2.98411C10.1968 3.05898 10.3534 3.18577 10.4636 3.34844C10.5738 3.51111 10.6326 3.70235 10.6326 3.89799C10.6324 4.16033 10.5267 4.41189 10.3386 4.59737C10.1505 4.78286 9.89538 4.8871 9.62939 4.88719Z"
+                                fill="#E5E5E5" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_659_1129">
+                                <rect width="12.8378" height="12.6618" fill="white" transform="translate(0 0.732544)" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </div>
+                <a class="text-neutral-200 text-xl futuraMD group-hover:text-green-600 group-hover:font-bold link">
+                    Log Out
+                </a>
+            </div>
+
+        </div>
+    </div>
+    <!-----END SIDE BAR----->
+
+
+
+    <div style="display: block; width: 100%; height: 100vh; overflow-y: hidden;" class="max-w-screen-3xl mx-auto">
+        <!-----START NAV BAR----->
+        <div class="px-2 flex-1">
+            <div class="p-2 pt-3 nav-bar items-center justify-between xs:hidden sm:flex
+            sm:flex-col lg:flex-row">
+                <div style="width: 470px;" class="relative ml-5 sm:order-2 lg:order-1">
+                    <input placeholder="Search..." class="rounded-md w-full outline outline-1 outline-gray-300
+                    p-2 pl-3 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500" type="text">
+                    <button class="absolute right-3 top-2">
+                        <img class="w-5 h-5" src="images/search.png" alt="">
+                    </button>
+                </div>
+
+
+                <div
+                    class="flex justify-between items-center p-2 mr-3 sm:mb-2 lg:mb-0 sm:ml-auto sm:order-1 lg:order-2">
+                    <button class="flex justify-center items-center mr-6">
+                        <img class="h-8 w-5 mr-2" src="./images/user.svg" alt="">
+                        <p class="futuraMD xs:hidden lg:block">Sign In</p>
+                    </button>
+
+                    <button class="mr-5">
+                        <img class="h-6 w-6" src="./images/settings.svg" alt="">
+                    </button>
+
+                    <button class="">
+                        <img class="h-6 w-6" src="./images/bell .svg" alt="">
+                    </button>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-----END NAV BAR----->
+        <div class="p-2 mt-2">
+            <div style="height: 100vh; overflow-y: auto; overflow-x: hidden;"
+                class="container content px-4 pt-8 sm:pb-44 lg:pb-32">
+                <div class="flex items-center justify-between mb-4 xs:flex-col xl:flex-row relative">
+                    <div class="flex items-center justify-between sm:w-full xl:w-auto sm:mb-3 xl:mb-0">
+                        <div class="flex items-center justify-between">
+                            <div id="btn1"
+                                class="flex transition-all box items-center justify-center shadow shadow-sm h-10  w-10  rounded-md bg-white mr-2">
+                                S</div>
+                            <div id="btn2"
+                                class="flex transition-all box items-center justify-center shadow shadow-sm h-10  w-10  rounded-md bg-white mr-2">
+                                %</div>
+                            <div id="btn3"
+                                class="flex transition-all box items-center justify-center shadow shadow-sm h-10  w-10  rounded-md bg-white">
+                                R
+                            </div>
+                        </div>
+                        <button id="rightSidefilterBtn"
+                            class="flex cursor-pointer items-center justify-center shadow shadow-sm h-10  w-10  rounded-md bg-white xl:hidden">
+                            <img src="images/short.svg" alt="">
+                        </button>
+
+                    </div>
+                    <div class="grid grid-cols-5 divide-slate-300 divide-x-[2px] justify-center items-center">
+                        <a href="/index.html" class=" font-bold montserrat navLinks hover:text-black ">Overview</a>
+                        <a href="/statistics.html"
+                            class="font-bold montserrat navLinks hover:text-black ">Statistics</a>
+                        <a href="/trades.html" class=" font-bold montserrat navLinks hover:text-black ">Trades</a>
+                        <a href="/journal.html" class=" font-bold montserrat navLinks hover:text-black ">Journal</a>
+                        <a href="/import_trades.html"
+                            class="sm:pl-2 lg:pl-4 font-bold montserrat navLinks hover:text-black ">Import
+                            trades</a>
+                    </div>
+                    <button id="rightSidefilterBtn2"
+                        class="flex cursor-pointer items-center justify-center shadow shadow-sm h-10  w-10  rounded-md bg-white xs:hidden xl:flex">
+                        <img src="images/short.svg" alt="">
+                    </button>
+
+
+
+
+                    <!-- Filter Menu -->
+                    <div class="absolute right-2 top-12 p-5 rounded-md filterMenuBox futuraMD text-center"
+                        id="filterMenuBox">
+                        <div class="flex justify-start items-center ">
+                            <img src="./images/filterIcon.svg" class="w-8 h-8" alt="">
+                            <h4 class="cusHardGreen ml-1 text-xl">Filter</h4>
+                        </div>
+
+
+                        <div class="xs:mt-1 2xl:mt-2 ">
+                            <div class="grid grid-cols-2 items-center">
+                                <h4 class="text-xl text-left">Accounts:</h4>
+                                <select class="form-select appearance-none
+                            block
+                            w-full
+                            px-3
+                            py-1.5
+                            text-base
+                            font-normal
+                            text-gray-700
+                            bg-white bg-clip-padding bg-no-repeat
+                            border border-solid border-gray-300
+                            rounded
+                            transition
+                            ease-in-out
+                            m-0 text-center
+                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                    aria-label="Default select example">
+                                    <option selected>Select</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+
+                            <div class="grid grid-cols-2 items-center xs:mt-1 2xl:mt-2">
+                                <h4 class="text-xl text-left">Strategies:</h4>
+                                <select class="form-select appearance-none
+                            block
+                            w-full
+                            px-3
+                            py-1.5
+                            text-base
+                            font-normal
+                            text-gray-700
+                            bg-white bg-clip-padding bg-no-repeat
+                            border border-solid border-gray-300
+                            rounded
+                            transition
+                            ease-in-out
+                            m-0 text-center
+                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                    aria-label="Default select example">
+                                    <option selected>Select</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="xs:mt-1 xl:mt-2 2xl:mt-5">
+                            <h4 class="font-bold text-xl text-center">Quick Select:</h4>
+
+                            <div class="radioButtonsBox">
+                                <div class="grid grid-cols-3 mt-3 ">
+                                    <input type="radio" name="q" id="30days" value="30days" class="hidden" checked>
+                                    <label for="30days" class="radioLable">Last 30 days</label>
+
+                                    <input type="radio" name="q" id="60days" value="60days" class="hidden">
+                                    <label for="60days" class="radioLable">Last 60 days</label>
+
+                                    <input type="radio" name="q" id="90days" value="90days" class="hidden">
+                                    <label for="90days" class="radioLable">Last 90 days</label>
+                                </div>
+
+
+                                <div class="mt-3 w-full flex justify-between">
+                                    <input type="radio" name="q" id="q1" value="q1" class="hidden">
+                                    <label for="q1" class="QradioLable">Q1</label>
+
+                                    <input type="radio" name="q" id="q2" value="q2" class="hidden">
+                                    <label for="q2" class="QradioLable">Q2</label>
+
+                                    <input type="radio" name="q" id="q3" value="q3" class="hidden">
+                                    <label for="q3" class="QradioLable">Q3</label>
+
+                                    <input type="radio" name="q" id="q4" value="q4" class="hidden">
+                                    <label for="q4" class="QradioLable">Q4</label>
+
+                                    <input type="radio" name="q" id="ytd" value="ytd" class="hidden" checked>
+                                    <label for="ytd" class="QradioLable">YTD</label>
+                                </div>
+                            </div>
+
+
+
+                            <div class="xs:mt-2 2xl:mt-4">
+                                <div class="grid grid-cols-3 items-center">
+                                    <h4 class="text-xl">Start Date:</h4>
+                                    <input type="date" name="" id="DatePicker" value="" class="DatePicker col-span-2">
+                                </div>
+                                <div class="grid grid-cols-3 items-center mt-2">
+                                    <h4 class="text-xl">End Date:</h4>
+                                    <input type="date" name="" id="DatePicker2" value="" class="DatePicker col-span-2">
+                                </div>
+                            </div>
+
+
+
+                            <div class="xs:mt-3 xl:mt-4 2xl:mt-8 text-center">
+                                <h4 class="text-xl font-bold">Filter Tag:</h4>
+
+                                <div class="wrapper xl:mt-0 2xl:mt-2">
+                                    <label for="wraperExpandBtn" id="wraperExpandLabel">
+                                        <div class="select-btn">
+                                            <div class="grid grid-cols-2 gap-2 select-none items-center w-full p-2">
+                                                Select An Tag
+                                            </div>
+                                            <button id="wraperExpandBtn">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </label>
+                                    <div class="filterTagContent">
+                                        <div class="search">
+                                            <i class="uil uil-search"></i>
+                                            <input spellcheck="false" type="text" placeholder="Search">
+                                        </div>
+                                        <ul class="options"></ul>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="xs:mt-2 xl:mt-3 2xl:mt-6 text-center">
+                                <h4 class="font-bold text-xl">Position Filtering</h4>
+
+                                <div class="grid grid-cols-3 items-center mt-2">
+                                    <h4 class="text-xl text-left">Side:</h4>
+                                    <div class="flex justify-between items-center sideRadioBtnBox col-span-2">
+                                        <input type="radio" name="side" id="short" value="short" class="hidden">
+                                        <label for="short" class="sideRadioLabel">Short</label>
+
+                                        <input type="radio" name="side" id="long" value="long" class="hidden">
+                                        <label for="long" class="sideRadioLabel">Long</label>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-3 items-center mt-2">
+                                    <h4 class="text-xl text-left">Duration:</h4>
+                                    <div class="flex justify-between items-center sideRadioBtnBox col-span-2">
+                                        <input type="radio" name="Duration" id="Intraday" value="Intraday"
+                                            class="hidden">
+                                        <label for="Intraday" class="sideRadioLabel">Intraday</label>
+
+                                        <input type="radio" name="Duration" id="Multiday" value="Multiday"
+                                            class="hidden">
+                                        <label for="Multiday" class="sideRadioLabel">Multiday</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <button class="clearFilterBtn px-10 py-2 mt-5 text-xl">
+                            Clear Filter
+                        </button>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="conatiner p-3 futuraMD">
+                    <h1 class="text-2xl mb-4">Import Trades</h1>
+
+                    <div class="grid gap-4 xl:grid-cols-4 sm:grid-cols-2 items-center justify-between mb-4 ">
+
+                        <div>
+                            <p class="text-sm">Select your broker or trading format <span class="text-red-400">*</span>
+                            </p>
+
+                            <div class="flex items-center sm:w-full xl:w-56 cusGray mt-1">
+                                <div class="relative inline-block w-full">
+                                    <select
+                                        class="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none outline-none"
+                                        placeholder="Regular input">
+                                        <option>Select broker</option>
+                                        <option>Another option</option>
+                                        <option>Another option</option>
+                                        <option>Another option</option>
+                                        <option>Another option</option>
+                                        <option>And one more</option>
+                                    </select>
+                                    <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                            <path
+                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                clip-rule="evenodd" fill-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div>
+                            <p class="text-sm">Local time zone <span class="text-red-400">*</span></p>
+
+                            <div class="flex items-center sm:w-full xl:w-56 cusGray mt-1">
+                                <div class="relative inline-block w-full">
+                                    <select
+                                        class="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none outline-none"
+                                        placeholder="Regular input">
+                                        <option>Select your local timezone</option>
+                                        <option>Another option</option>
+                                        <option>Another option</option>
+                                        <option>Another option</option>
+                                        <option>Another option</option>
+                                        <option>And one more</option>
+                                    </select>
+                                    <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                            <path
+                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                clip-rule="evenodd" fill-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div>
+                            <p class="text-sm">Add Tags to all trades in this import <span class="text-red-400">*</span>
+                            </p>
+                            <div class="flex items-center sm:w-full xl:w-56 cusGray mt-1">
+
+
+
+                                <div class="imTrades_wrapper relative">
+                                    <label for="imTrades_wraperExpandBtn" id="imTrades_wraperExpandLabel">
+                                        <div class="imTrades_select-btn">
+                                            <div class="grid grid-cols-2 gap-2 items-center w-full p-2 select-none">
+                                                Select An Tag
+                                            </div>
+                                            <button id="imTrades_wraperExpandBtn">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </label>
+                                    <div class="imTrades_filterTagContent absolute w-full">
+                                        <div class=" imTrades_search">
+                                            <i class="uil uil-search"></i>
+                                            <input spellcheck="false" type="text" placeholder="Search">
+                                        </div>
+                                        <ul class="imTrades_options"></ul>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+
+
+                <div class="flex flex-col" id="drop-zone-main-box">
+                    <div class="drop-zone">
+                        <span class="drop-zone__prompt">
+                            <img src="./images/uploadTreads.svg" alt="">
+                        </span>
+                        <input type="file" name="myFile" class="drop-zone__input" id="drop-zone__input">
+                    </div>
+
+                    <!-- <button class="mt-2 ml-auto mr-3">
+                        <label for="drop-zone__input" class="cursor-pointer flex justify-start items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-2" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path
+                                    d="M5.5 13a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 13H11V9.413l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13H5.5z" />
+                                <path d="M9 13h2v5a1 1 0 11-2 0v-5z" />
+                            </svg>
+                            <h3 class="font-semibold">Upload another file</h3>
+                        </label>
+                    </button> -->
+                </div>
+
+
+
+                <div class="p-4 mt-5 importTradesBottomLetter text-sm">
+                    <p>
+                        Important Instructions: <br><br>
+
+                        To import trade data from Thinkorswim, follow these steps: <br><br>
+
+                        Open the Thinkorswim desktop application. At the top of the window, select a specific account
+                        from
+                        the dropdown list (instead of "ALL ACCOUNTS"). <br>
+                        Go to the "Monitor" tab, and choose "Account Statement" from the options at the top. <br>
+                        Click the dropdown at the top of the Account Statement and select the date range you wish to
+                        import.
+                        Wait for the "Trade History" section to fill in with your trades from that range; note that if
+                        you
+                        are looking for data far in the past this may take a while. <br>
+                        Make sure the Trade History section is sorted by Exec Time, with the oldest first.
+                        Click the actions menu at the top right of the window, and select "Export to file" from the menu
+                        that displays.
+                        Change the file type to "CSV", and save the file to your desktop (or anywhere else - just
+                        remember
+                        where you put it).
+                        Here on the import page, click "Choose file", choose the file you created above, and click
+                        "Upload".
+                        NOTE: currently, the "Trade History" section of your account statement must include at least the
+                        following columns: Exec Time, Spread, Side, Qty, Symbol, and Price. The default column settings
+                        will
+                        work, or if you have changed them, you can restore the defaults by clicking the circle to the
+                        left
+                        of the column headers under trade history, select "Customize", then click Load Defaults and OK.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+    <script src="./js/script.js"></script>
+    <script src="./js/importTrades.js"></script>
+</body>
+
+
+</html>

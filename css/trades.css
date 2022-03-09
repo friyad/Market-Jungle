@@ -1,0 +1,38 @@
+
+
+.tradesDataHeader{
+    background: #FFFFFF;
+    opacity: 0.8;
+    /* Colors/Primary/Daikin Black/Variant -3 */
+    border: 1px solid #D9D9D9;
+    box-sizing: border-box;
+    border-radius: 8px;
+font-weight: 800;
+font-size: 18px;
+
+}
+
+.tradesDataContent{
+background: #FFFFFF;
+opacity: 0.8;
+/* Colors/Primary/Daikin Black/Variant -3 */
+
+border: 1px solid #D9D9D9;
+box-sizing: border-box;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 8px;}
+
+
+.paginationItem{
+    padding: 8px 20px 8px 20px;
+    border: 1px solid #064A0E;
+    box-sizing: border-box;
+    border-radius: 3px;
+    margin-right: 8px;
+}
+
+.paginationItem:hover{
+    background: linear-gradient(90deg, rgba(0,57,23,1) 0%, rgba(0,0,0,1) 100%);
+    color: white;
+    font-weight: 700;
+}

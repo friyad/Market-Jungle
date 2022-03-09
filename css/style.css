@@ -1,0 +1,508 @@
+html, body{
+    padding: 0;
+    margin: 0;
+    width: auto;
+    height: 100vh;
+    background-color: #F9FFF8;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+
+    word-wrap: break-word;
+}
+.divider{
+    height: 1px;
+    width: 100%;
+    background-color: #ffffff70;
+}
+.logo{
+    background: #F9FFF8;
+    border-radius: 0px 0px 4px 4px;
+
+}
+@media only screen and (min-width: 0px) {
+    .sideBar{
+        height: 100%;
+        width: 100%;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .sideBar{
+        position: relative;
+        height: 100%;
+        width: 380px;
+    }
+}
+
+.icon{
+    background-color: #ffffff38;
+}
+
+.nav-bar{
+    max-width: 100%;
+    background: rgba(3, 39, 10, 0.02);
+    border-radius: 0px 0px 4px 4px;
+}
+#btn1{
+    color: #fff;
+    background: linear-gradient(90deg, rgb(0 111 16) 0%, rgba(0,0,0,1) 100%);
+}
+.box:hover{
+    transition: all 0.3s ease-in-out;
+    color: #fff;
+    background: linear-gradient(90deg, rgb(0 111 16) 0%, rgba(0,0,0,1) 100%);
+}
+.box{
+    cursor: pointer;
+}
+/* .active{
+    background: linear-gradient(90deg, rgba(0,57,23,1) 0%, rgba(0,0,0,1) 100%);
+} */
+
+
+@media only screen and (min-width: 0px) {
+  .link{
+    font-size: 15px!important;
+}
+}
+@media only screen and (min-width: 1280px) {
+  .link{
+    font-size: 21px!important;
+}
+}
+
+.content{
+    background: rgba(3, 39, 10, 0.02);
+    border: 0.3px solid #FFFFFF;
+}
+.link-content{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+.link-content:hover .icon{
+    box-shadow: 0px 0px 5px 0px gray;
+    margin-right: 15px;
+}
+.link-content:hover .mySvG path{
+    fill: #518249;
+}
+
+/* if Sidebar Link Active */
+.link-contentActive{
+  background-color: white;
+  padding-left: 1.75rem!important;
+}
+.link-contentActive .icon{
+  box-shadow: 0px 0px 5px 0px gray;
+  margin-right: 15px;
+}
+.link-contentActive .mySvG path{
+  fill: #518249;
+}
+.link-contentActive a{
+  color: rgb(22 163 74);
+}
+
+
+
+/* if link active---------- */
+.leftSideNavA.activeLink .link-content{
+    background-color: white;
+    padding-left: 1.75rem;
+}
+.leftSideNavA.activeLink .icon{
+    box-shadow: 0px 0px 5px 0px gray;
+    margin-right: 15px;
+}
+.leftSideNavA.activeLink .mySvG path{
+    fill: #518249;
+}
+.leftSideNavA.activeLink .link-content p{
+    color: rgb(22 163 74);	
+}
+
+
+
+
+
+
+@media only screen and (min-width: 0px) {
+    .SmallMenuBar{
+        width: 100%;
+        transform: translateX(-100%);
+        position: absolute;
+        -webkit-transition: all 0.2s ease-in;
+    }
+}
+.leftSideBarActive {
+    transform: translateX(0%);
+}
+@media only screen and (min-width: 640px) {
+    .SmallMenuBar{
+        transform: translateX(0%);
+        -webkit-transition: all 0.2s ease-in;
+    }
+  }
+
+
+/* -------------Custom Fonts Class------------- */
+.montserrat{
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+@font-face {font-family: "Futura MdCn BT"; src: url("//db.onlinewebfonts.com/t/2dca5bc5177da8cb08a17db78c5ee951.eot"); src: url("//db.onlinewebfonts.com/t/2dca5bc5177da8cb08a17db78c5ee951.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/2dca5bc5177da8cb08a17db78c5ee951.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/2dca5bc5177da8cb08a17db78c5ee951.woff") format("woff"), url("//db.onlinewebfonts.com/t/2dca5bc5177da8cb08a17db78c5ee951.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/2dca5bc5177da8cb08a17db78c5ee951.svg#Futura MdCn BT") format("svg"); }
+
+.futuraMD{
+    font-family: 'Futura MdCn BT', sans-serif;
+}
+
+.navLinks{
+    color: #656565;
+    font-size: 10px;
+}
+.navLinks.activeLink{
+    color: black;
+}
+.cusRed{
+    color: #B84D2B;
+}
+.cusGreen{
+    color: #38712F;
+}
+.cusHardGreen{
+    color: #043D10;
+}
+.cusGray{
+    color: #656565;
+}
+
+
+
+/* Filter menu */
+.filterMenuBox{
+    z-index: 999999999999;
+    /* overflow: hidden; */
+    background: #F4FBF3;
+    border-radius: 9px;
+    border: 1px solid rgba(128, 128, 128, 0.308);
+    width: 300px;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s;
+    transform: translateX(150%);
+}
+
+.filterMenuBox.filterMenuActive{
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s;
+    transform: translateX(0%);
+}
+
+
+.radioLable{
+    padding: 5px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+    margin-right: 5px;
+    text-align: center;
+    color: #656565;
+    cursor: pointer;
+    border-radius: 5px;
+    user-select: none;
+}
+
+.radioButtonsBox input:checked + .radioLable{
+    background: #38712F;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+    color: white;
+}
+
+.radioButtonsBox input:checked + .QradioLable{
+    background: #38712F;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+    color: white;
+}
+
+.QradioLable{
+    padding: 5px 16px 5px 16px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+    margin-right: 5px;
+    text-align: center;
+    color: #656565;
+    cursor: pointer;
+    border-radius: 5px;
+    user-select: none;
+}
+
+
+.DatePicker{
+    padding: 10px;
+    outline: none;
+    width: 100%;
+    font-size: 18px;
+    background: #FFFFFF;
+    color: #676565;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    text-align: center;
+}
+.DatePicker[type="date"]::-webkit-inner-spin-button,
+.DatePicker[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+
+.sideRadioLabel{
+    padding: 5px 16px 5px 16px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+    margin-right: 5px;
+    text-align: center;
+    color: #656565;
+    cursor: pointer;
+    border-radius: 5px;
+    user-select: none;
+}
+
+.sideRadioBtnBox input:checked + .sideRadioLabel{
+    background: #38712F;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Import Google Font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+.wrapper{
+  padding: 5px;
+  position: relative;
+}
+.select-btn, li{
+  display: flex;
+  align-items: center;
+}
+.select-btn{
+  min-height: 50px;
+  padding: 0 10px;
+  font-size: 18px;
+  background: #F4F9FD;
+    border: 1px solid #D9D9D9;
+    box-sizing: border-box;
+    border-radius: 5px;
+  justify-content: space-between;  
+}
+.select-btn i{
+  font-size: 18px;
+  transition: transform 0.3s linear;
+}
+.wrapper.active .select-btn svg{
+  transform: rotate(-180deg);
+}
+.filterTagContent{
+  position: absolute;
+  z-index: 9999999999999999;
+  display: none;
+  padding: 18px;
+  margin-top: 10px;
+  background: #fff;
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+.wrapper.active .filterTagContent{
+  display: block;
+}
+.filterTagContent .search{
+  position: relative;
+}
+.search i{
+  top: 50%;
+  left: 15px;
+  color: #999;
+  font-size: 20px;
+  pointer-events: none;
+  transform: translateY(-50%);
+  position: absolute;
+}
+.search input{
+  height: 40px;
+  width: 100%;
+  outline: none;
+  font-size: 17px;
+  border-radius: 5px;
+  padding: 0 20px 0 20px;
+  border: 1px solid #B3B3B3;
+  background: #F4F9FD;
+  border-radius: 5px;
+}
+.search input:focus{
+  padding-left: 20px;
+  border: 2px solid #4285f4;
+}
+.search input::placeholder{
+  color: #bfbfbf;
+}
+.filterTagContent .options{
+  margin-top: 5px;
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 7px;
+}
+.options::-webkit-scrollbar{
+  width: 7px;
+}
+.options::-webkit-scrollbar-track{
+  background: #f1f1f1;
+  border-radius: 25px;
+}
+.options::-webkit-scrollbar-thumb{
+  background: #ccc;
+  border-radius: 25px;
+}
+.options::-webkit-scrollbar-thumb:hover{
+  background: #b3b3b3;
+}
+.options li{
+  height: 50px;
+  padding: 0 13px;
+  font-size: 18px;
+}
+.options li:hover, li.selected{
+  border-radius: 5px;
+  background: #f2f2f2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.clearFilterBtn{
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    color: #656565;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================================================= */
+/* ============================================================= */
+@media only screen and (min-width: 0px) {
+    .logoLargName{
+    font-size: 20px;
+   }    
+   .logoSmallTexts{
+    font-size: 10px; 
+    color:#38712F
+   }
+   .navLinks{
+    color: #656565;
+    font-size: 12px;
+    text-align: center;
+}
+  .filterMenuBox{
+    height: 80vh;
+  }
+  .DatePicker{
+    padding: 5px;
+  }
+  }
+@media only screen and (min-width: 640px) {
+    .logoLargName{
+        font-size: 20px;
+       }    
+       .logoSmallTexts{
+        font-size: 9px; 
+       }
+       .filterMenuBox{
+        height: 660px;
+      }
+  }
+@media only screen and (min-width: 769px) {
+    .logoLargName{
+        font-size: 23px;
+       }    
+       .logoSmallTexts{
+        font-size: 11px; 
+       }
+       .navLinks{
+        font-size: 15px;
+        text-align: center;
+      }
+    
+  }
+@media only screen and (min-width: 1024px) {
+  .filterMenuBox{
+    height: 680px;
+  }
+  }
+@media only screen and (min-width: 1280px) {
+    .navLinks{
+        font-size: 17px;
+        text-align: center;
+      }
+       .logoSmallTexts{
+        font-size: 11px; 
+       }
+       .filterMenuBox{
+        height: 680px;
+      }
+     
+  }
+@media only screen and (min-width: 1536px) {
+  .filterMenuBox{
+    height: 770px;
+  }
+  .DatePicker{
+    padding: 10px;
+  }
+  }
+
+

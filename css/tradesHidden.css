@@ -1,0 +1,172 @@
+
+.ItemDetailsTOPbox{
+    background: #FFFFFF;
+    border: 1px solid #656565;
+    box-sizing: border-box;
+    border-radius: 4px;
+    height: 280px;
+    overflow-y: auto;
+}
+
+.includedTopBox{
+    background: #E6E5E5;
+    border: 0.3px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.topBoxItemHeader{
+    background: #FFFFFF;
+    border: 1px solid #D9D9D9;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+.topBoxItem{
+    background: #FFFFFF;
+    border: 1px solid #D9D9D9;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+}
+
+
+.AppsChart{
+    background: #FFFFFF;
+    border: 1px solid #656565;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.addFilterTagsBox{
+    overflow: auto;
+    background: #FFFFFF;
+    border: 1px solid #656565;
+    box-sizing: border-box;
+    border-radius: 4px;
+    height: 25rem;
+}
+
+
+
+
+
+
+
+
+
+/* Import Google Font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+.tradesAddFilter__wrapper{
+  padding: 5px;
+}
+.tradesAddFilter__select-btn, li{
+  display: flex;
+  align-items: center;
+}
+.tradesAddFilter__select-btn{
+  min-height: 50px;
+  padding: 0 10px;
+  font-size: 18px;
+  background: #F4F9FD;
+    border: 1px solid #D9D9D9;
+    box-sizing: border-box;
+    border-radius: 5px;
+  justify-content: space-between;  
+}
+.tradesAddFilter__select-btn i{
+  font-size: 18px;
+  transition: transform 0.3s linear;
+}
+.tradesAddFilter__wrapper.active .tradesAddFilter__select-btn svg{
+  transform: rotate(-180deg);
+}
+.trades__filterTagContent{
+  display: none;
+  padding: 18px;
+  margin-top: 15px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+.tradesAddFilter__wrapper.active .trades__filterTagContent{
+  display: block;
+}
+.trades__filterTagContent .trades__search{
+  position: relative;
+}
+.trades__search i{
+  top: 50%;
+  left: 15px;
+  color: #999;
+  font-size: 20px;
+  pointer-events: none;
+  transform: translateY(-50%);
+  position: absolute;
+}
+.trades__search input{
+  height: 40px;
+  width: 100%;
+  outline: none;
+  font-size: 17px;
+  border-radius: 5px;
+  padding: 0 20px 0 20px;
+  border: 1px solid #B3B3B3;
+  background: #F4F9FD;
+  border-radius: 5px;
+}
+.trades__search input:focus{
+  padding-left: 20px;
+  border: 2px solid #4285f4;
+}
+.trades__search input::placeholder{
+  color: #bfbfbf;
+}
+.trades__filterTagContent .trades__options{
+  margin-top: 5px;
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 7px;
+}
+.trades__options::-webkit-scrollbar{
+  width: 7px;
+}
+.trades__options::-webkit-scrollbar-track{
+  background: #f1f1f1;
+  border-radius: 25px;
+}
+.trades__options::-webkit-scrollbar-thumb{
+  background: #ccc;
+  border-radius: 25px;
+}
+.trades__options::-webkit-scrollbar-thumb:hover{
+  background: #b3b3b3;
+}
+.trades__options li{
+  height: 50px;
+  padding: 0 13px;
+  font-size: 18px;
+}
+.trades__options li:hover, li.selected{
+  border-radius: 5px;
+  background: #f2f2f2;
+}
+
+
+
+
+
+
+.journalBigTextArea{
+    background: #F4F9FD;
+    border: 1px solid #38712F;
+    box-sizing: border-box;
+    border-radius: 5px;
+    width: 100%;
+}
+.journalBigTextArea:focus{
+    background: #FFFFFF;  
+    border: 1px solid #8C8C8C;
+    box-sizing: border-box;
+    border-radius: 5px;
+}

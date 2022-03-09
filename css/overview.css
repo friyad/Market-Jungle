@@ -1,0 +1,32 @@
+
+@media only screen and (min-width: 0px) {
+
+  }
+@media only screen and (min-width: 640px) {
+  .chartBox{
+    height: 300px;
+    }
+    
+  }
+@media only screen and (min-width: 769px) {
+    .chartBox{
+        height: 400px;
+        }
+  }
+@media only screen and (min-width: 1024px) {
+
+  }
+@media only screen and (min-width: 1280px) {
+  .chartBox{
+    height: auto;
+    }
+  }
+@media only screen and (min-width: 1536px) {
+
+  }
+
+
+#left-y-axis{
+  color: red;
+ padding-bottom: 80px;
+}
